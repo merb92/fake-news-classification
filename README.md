@@ -2,6 +2,9 @@
 
 # Author: Michael Erb
 
+![Fake News](images/fake-news-disinformation-lie-misinformation-fake-news.png)
+image from pngegg.com
+
 # Problem
 
 Our social media company has been accused of allowing “fake news” to proliferate on our site. We are facing a backlash from the public and our shareholders who are pressuring us to respond to the charges. In order to respond, we must first attempt to determine if the charges have merit.
@@ -52,7 +55,12 @@ The dataset on Kaggle contains news stories from the [Guardian](https://www.theg
 
 # Conclusion
 
-The model that I found to be the most generalizable while still returning an accuracy of 89% and F1 scores of 0.89 for both fake and true, was a random forest classifier that only considered words from a stopwords list.  By only looking at the stopwords, the people, places, organizations, dates, jargon, and other situation specific references were removed which would make the news more generalizable because the classifications would not be dependent on those removed elements.  This model can be found at the bottom of the [rf_tfidf_plus_guardian.ipynb.ipynb](notebooks/rf_tfidf_plus_guardian.ipynb.ipynb) notebook.
+The model that I found to be the most generalizable while still returning an accuracy of 89% and F1 scores of 0.89 for both fake and true, was a random forest classifier that only considered words from a stopwords list.  By only looking at the stopwords, the people, places, organizations, dates, jargon, and other situation specific references were removed which would make the news more generalizable because the classifications would not be dependent on those removed elements.  This model can be found in the [rf_tfidf_plus_guardian.ipynb.ipynb](notebooks/rf_tfidf_plus_guardian.ipynb.ipynb) notebook.
+
+![Classification Report and Confusion Matrix](images/classification_report.png)
+
+Top 10 Most Important Stopwords for Classification
+![Top Ten Most Important Words for Classification](images/feature_importance.png)
 
 # Recommendations
 
