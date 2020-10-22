@@ -86,4 +86,4 @@ While the model developed here did a good job classifying news stories, with the
 
 # For Further information
 
-Please review the narrative of the analysis in the [Jupyter notebooks](index.ipynb) or review the [presentation].
+Please review the narrative of the analysis in the [Jupyter notebooks](index.ipynb) or review the [presentation](fake_news_classification.pdf).
