@@ -84,6 +84,10 @@ As additional stories are collected and labeled, their URL should also be collec
 
 While the model developed here did a good job classifying news stories, with the continual advancements in NLP, such as the recent GPT-3, detection should become harder. For example, if the GPT-3 is told to generate a news story in the style of a writer at the New York Times for instance, it would be hard to detect since our model is not actually checking the accuracy of the news story, just its style.
 
+# Deployed Model
+
+View the deployed model built with Streamlit and hosted on Heroku [here](https://agile-tor-23064.herokuapp.com/).  To view the code specific to the webapp go to the [dashboard](https://github.com/merb92/fake-news-classification/tree/dashboard) branch and refer to the [blog post](https://medium.com/analytics-vidhya/deploy-an-nlp-model-with-streamlit-and-heroku-5f0ae4b9048c).
+
 # For Further information
 
 Please review the narrative of the analysis in the [Jupyter notebooks](index.ipynb), review the [presentation](fake_news_classification.pdf), or read the related blog articles on the [project as a whole](https://merb92.medium.com/too-good-to-be-true-nlp-c97868c2db55) and [deploying it](https://medium.com/analytics-vidhya/deploy-an-nlp-model-with-streamlit-and-heroku-5f0ae4b9048c).
