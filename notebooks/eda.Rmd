@@ -1,0 +1,54 @@
+---
+title: "Fake News Classification EDA Notebook"
+output: html_notebook
+---
+
+# Perform EDA on News Dataset that includes stories from the Guardian
+
+# Imports and Constants
+```{r}
+library(dplyr)
+library(readr)
+library(ggplot2)
+
+DATA_PATH = '../data/'
+PRE_PROCESSED_DATA_FILE_NAME = 'news_dataset_pre_processed.csv'
+GUARDIAN_DATA_FILE_NAME = 'guardian_news_dataset_cleaned.csv'
+RANDOM_STATE = 42
+```
+
+# Load Data
+```{r}
+df <- read_csv(paste(DATA_PATH, PRE_PROCESSED_DATA_FILE_NAME, sep='')) %>%
+  select(title, text, label, clean_text_tokens, clean_title_tokens)
+
+df_guard <- read_csv(paste(DATA_PATH, GUARDIAN_DATA_FILE_NAME, sep=''))
+```
+# Integrate Guardian Stories into the Dataset as true
+## Split original data by label
+```{r}
+df_fake <- filter(df, label == 'fake')
+df_true <- filter(df, label == 'true')
+```
+There are `r nrow(df_fake)` fake news stories.
+Half that amount of true stories from the Guardian will be integrated into the set of true news stories.
+## Take a random sample of the original true news stories
+```{r}
+set.seed(RANDOM_STATE)
+df_true_sample = sample_n(df_true, 8724)
+```
+## Take a random sample of the Guardian news stories
+```{r}
+set.seed(RANDOM_STATE)
+df_guard_sample <- sample_n(df_guard, 8723)
+```
+### Assign the label true
+```{r}
+# The mutate operation took a very long time to execute
+# mutate(df_guard_sample, label = 'true') 
+df_guard_sample[['label']] <- 'true'
+df_guard_sample %>%
+  slice_head(n = 5)
+```
+
+
