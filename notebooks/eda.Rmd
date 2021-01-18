@@ -5,6 +5,8 @@ output: html_notebook
 
 # Perform EDA on News Dataset that includes stories from the Guardian
 
+The purpose of this notebook is to practice EDA in R on a dataset that was already explored using Python
+
 # Imports and Constants
 ```{r}
 library(dplyr)
@@ -124,3 +126,16 @@ show_hist_for_col(df_combined,
 ```
 Despite the fake stories having more short title than the true ones, the fake stories have a considerable amount more Capital Letters.
 
+## Percentage of Capital Letters in Title
+
+```{r}
+df_combined <- mutate(df_combined, norm_caps_in_title = caps_in_title / title_len)
+
+show_hist_for_col(df_combined, 
+                  'norm_caps_in_title',
+                  'Percentage of Capital Letters in News Title by Label',
+                  'Percentage')
+
+```
+
+The two labels have almost no overlap.  Although likely not useful against real world data because the tactics of fake news perveyers could easily be changed to beat a system checking this metric, it would have almost perfect classification on this dataset.
