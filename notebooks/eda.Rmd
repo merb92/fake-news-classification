@@ -44,11 +44,20 @@ df_guard_sample <- sample_n(df_guard, 8723)
 ```
 ### Assign the label true
 ```{r}
-# The mutate operation took a very long time to execute
-# mutate(df_guard_sample, label = 'true') 
-df_guard_sample[['label']] <- 'true'
-df_guard_sample %>%
-  slice_head(n = 5)
+df_guard_sample <- mutate(df_guard_sample, label = 'true') 
+```
+## Make column names consistent
+```{r}
+df_guard_sample <- df_guard_sample %>%
+  rename(title = webTitle,
+         text = fields.bodyText
+         )
+```
+## Combine Dataframes for analysis
+```{r}
+df_combined <- bind_rows(select(df_fake, title, text, label),
+                         select(df_true_sample, title, text, label),
+                         select(df_guard_sample, title, text, label))
 ```
 
 
