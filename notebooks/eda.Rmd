@@ -64,6 +64,23 @@ df_combined <- bind_rows(select(df_fake, title, text, label),
 ```
 # Explore the data
 
+## Define Helper Function
+```{r}
+show_hist_for_col <- function(df, col, viz_title, x_label){
+  #' Display a histogram for the values in the col column in the df dataframe
+  #' 
+  ggplot(df, aes(x = get(col), color = label)) +
+    geom_histogram(alpha = 0.4, position = 'identity') +
+    labs(title = viz_title,
+         x = x_label) +
+    theme(plot.title = element_text(hjust = 0.5))
+}
+```
+
+
+
+
+
 ## Distibution of the labels
 
 ```{r}
@@ -78,11 +95,9 @@ As expected, the fake and true labels are balanced
 ```{r}
 df_combined <- mutate(df_combined, title_len = str_length(title))
 
-ggplot(df_combined, aes(x = title_len, color = label)) +
-  geom_histogram(alpha = 0.4, position = 'identity') +
-  labs(title = 'Number of Characters in the News Title by Label',
-       x = 'Number of Characters in Title') +
-  theme(plot.title = element_text(hjust = 0.5))
+show_hist_for_col(df_combined, 'title_len',
+                  'Number of Characters in the News Title by Label',
+                  'Number of Characters in Title')
 ```
 The number of characters for the fake stories tends to be longer compared to the true stories.
 
@@ -90,11 +105,10 @@ The number of characters for the fake stories tends to be longer compared to the
 ```{r}
 df_combined <- mutate(df_combined, text_len = str_length(text))
 
-ggplot(df_combined, aes(x = text_len, color = label)) +
-  geom_histogram(alpha = 0.4, position = 'identity') +
-  labs(title = 'Number of Characters in the News Text by Label',
-       x = 'Number of Characters in Text') +
-  theme(plot.title = element_text(hjust = 0.5))
+show_hist_for_col(df_combined, 
+                  'text_len', 
+                  'Number of Characters in the News Text by Label', 
+                  'Number of Characters in Text')
 ```
 
 There are some extremely long true stories, but there is significant overlap in the length of the stories with the fake stories tending to be shorter.
@@ -103,11 +117,10 @@ There are some extremely long true stories, but there is significant overlap in 
 ```{r}
 df_combined <- mutate(df_combined, caps_in_title = str_count(title, '[A-Z]'))
 
-ggplot(df_combined, aes(x = caps_in_title, color = label)) +
-  geom_histogram(alpha = 0.4, position = 'identity') +
-  labs(title = 'Number of Capital Letters in the News Title by Label',
-       x = 'Number of Capital Letters in Title') +
-  theme(plot.title = element_text(hjust = 0.5))
+show_hist_for_col(df_combined, 
+                  'caps_in_title', 
+                  'Number of Capital Letters in the News Title by Label',
+                  'Number of Capital Letters in Title')
 ```
 Despite the fake stories having more short title than the true ones, the fake stories have a considerable amount more Capital Letters.
 
