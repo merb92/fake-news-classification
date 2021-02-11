@@ -90,4 +90,4 @@ View the deployed model built with Streamlit and hosted on Heroku [here](https:/
 
 # For Further information
 
-Please review the narrative of the analysis in the [Jupyter notebooks](index.ipynb), review the [presentation](fake_news_classification.pdf), or read the related blog articles on the [project as a whole](https://merb92.medium.com/too-good-to-be-true-nlp-c97868c2db55) and [deploying it](https://medium.com/analytics-vidhya/deploy-an-nlp-model-with-streamlit-and-heroku-5f0ae4b9048c).
+Please review the narrative of the analysis in the [Jupyter notebooks](01_project_summary.ipynb), review the [presentation](fake_news_classification.pdf), or read the related blog articles on the [project as a whole](https://merb92.medium.com/too-good-to-be-true-nlp-c97868c2db55) and [deploying it](https://medium.com/analytics-vidhya/deploy-an-nlp-model-with-streamlit-and-heroku-5f0ae4b9048c).
