@@ -57,10 +57,16 @@ The dataset on Kaggle contains news stories from the [Guardian](https://www.theg
 
 The model that I found to be the most generalizable while still returning an accuracy of 89% and F1 scores of 0.89 for both fake and true, was a random forest classifier that only considered words from a large [stopwords list](data/gist_stopwords.txt) from [here](https://gist.github.com/ZohebAbai/513218c3468130eacff6481f424e4e64) based on this [thread](https://gist.github.com/sebleier/554280).  By only looking at the stopwords, the people, places, organizations, dates, jargon, and other situation specific references were removed which would make the news more generalizable because the classifications would not be dependent on those removed elements.  This model can be found in the [09_rf_tfidf_plus_guardian.ipynb](notebooks/09_rf_tfidf_plus_guardian.ipynb) notebook.
 
+**A summary of the performance of this model is below**
+* The Classification Report shows the high accuracy and f1 scores used as performance metrics
+* The Confusion Matrix illustrates the numbers of correct and incorrect classifications that the metrics in the Classification Report would produce when applied to a dataset of almost 7K news stories
+
 ![Classification Report and Confusion Matrix](images/classification_report.png)
 
-Top 10 Most Important Stopwords for Classification
+**Top 10 Most Important Stopwords for Classification According to the Best Performing Random Forest Classifier**
+
 ![Top Ten Most Important Words for Classification](images/feature_importance.png)
+
 
 # Recommendations
 
