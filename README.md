@@ -97,6 +97,10 @@ The model that I found to be the most generalizable while still returning an **a
 
 View the deployed model built with Streamlit and hosted on Heroku [here](https://agile-tor-23064.herokuapp.com/).  To view the code specific to the webapp go to the [dashboard](https://github.com/merb92/fake-news-classification/tree/dashboard) branch and refer to the [blog post](https://medium.com/analytics-vidhya/deploy-an-nlp-model-with-streamlit-and-heroku-5f0ae4b9048c).
 
+# Deployed Model
+
+View the deployed model built with Streamlit and hosted on Heroku [here](https://agile-tor-23064.herokuapp.com/).  To view the code specific to the webapp go to the [dashboard](https://github.com/merb92/fake-news-classification/tree/dashboard) branch and refer to the [blog post](https://medium.com/analytics-vidhya/deploy-an-nlp-model-with-streamlit-and-heroku-5f0ae4b9048c).
+
 # For Further information
 
 * The [Detailed Narrative](01_project_summary.ipynb) of the project in [01_project_summary.ipynb](01_project_summary.ipynb)
